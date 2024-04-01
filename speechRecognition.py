@@ -3,14 +3,17 @@ import speech_recognition
 import webbrowser
 import os
 
+
 engine = pyttsx3.init()
 engine.setProperty('rate',200)
 print("Welcome to Personal Voice assistant.")
 engine.say("Welcome to Personal Voice assistant.")
 
+
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
+
 
 def input_voice():
     r = speech_recognition.Recognizer()
@@ -44,7 +47,7 @@ if __name__== '__main__':
     
     print("How can I help you?")
     speak("How can I help you?")
-    while f:
+    while True:
         command = input_voice().lower()
         if 'google' in command:
             speak("Opening google.com")

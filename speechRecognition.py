@@ -5,7 +5,8 @@ import os
 
 engine = pyttsx3.init()
 engine.setProperty('rate',150)
-engine.say("Welcome to Rohan's Voice assistant.")
+print("Welcome to Personal Voice assistant.")
+engine.say("Welcome to Personal Voice assistant.")
 
 def speak(audio):
     engine.say(audio)
@@ -27,8 +28,22 @@ def input_voice():
         print(e)
         print("I didn't understand")
     return query
+
+
 if __name__== '__main__':
     f = True
+    name = ''
+    print("What is your name ?")
+    speak("What is your name "+name)
+    s = speech_recognition.Recognizer()
+    with speech_recognition.Microphone() as source:
+        n = s.listen(source)
+        name = s.recognize_google(n)
+    print("Hello "+name)
+    speak("Hello "+ name)
+    
+    print("How can I help you?")
+    speak("How can I help you?")
     while f:
         command = input_voice().lower()
         if 'google' in command:
@@ -47,6 +62,9 @@ if __name__== '__main__':
             speak("opening whatsapp")
             loc = "C:\\Users\\jaspr\\AppData\\Local\\WhatsApp\\WhatsApp.exe"
             os.startfile(loc)
+        elif 'sleep':
+            exit(0)
+        
          
 
 

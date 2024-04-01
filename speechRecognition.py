@@ -4,7 +4,7 @@ import webbrowser
 import os
 
 engine = pyttsx3.init()
-engine.setProperty('rate',150)
+engine.setProperty('rate',200)
 print("Welcome to Personal Voice assistant.")
 engine.say("Welcome to Personal Voice assistant.")
 
@@ -62,8 +62,10 @@ if __name__== '__main__':
             speak("opening whatsapp")
             loc = "C:\\Users\\jaspr\\AppData\\Local\\WhatsApp\\WhatsApp.exe"
             os.startfile(loc)
-        elif 'sleep':
-            exit(0)
+        elif 'sleep' or 'quit' in command:
+            print("Bye")
+            speak("Bye")
+            exit()
         
          
 
